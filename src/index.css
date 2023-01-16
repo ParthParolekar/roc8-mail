@@ -1,1 +1,25 @@
+@import "./components/index.css";
 
+:root {
+  --accent: #e54065;
+  --background: #f4f5f9;
+  --border: #cfd2dc;
+  --text: #636363;
+  --filter-btn: #e1e4ea;
+  --read-background: #f2f2f2;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Poppins";
+}
+
+.App {
+  background-color: var(--background);
+  /* height: 100vh; */
+}
