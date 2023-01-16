@@ -1,0 +1,20 @@
+.btn {
+  font-size: 1rem;
+  font-family: "Poppins";
+  cursor: pointer;
+  padding: 0.2rem 0.8rem;
+  border-radius: 15px;
+}
+
+.filter-btn {
+  border: 1px solid var(--filter-btn);
+  color: var(--text);
+}
+
+.filter-btn-selected {
+  background-color: var(--filter-btn);
+}
+
+.filter-btn:hover {
+  background-color: var(--filter-btn);
+}
