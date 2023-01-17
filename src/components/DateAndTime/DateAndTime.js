@@ -17,7 +17,11 @@ const DateAndTime = ({ time }) => {
 
   const dateStructure = `${DD}/${MM}/${year} ${time12HrFormat}`;
 
-  return <>{dateStructure}</>;
+  return (
+    <>
+      <h3 className="email-card-text">{dateStructure}</h3>
+    </>
+  );
 };
 
 export default DateAndTime;

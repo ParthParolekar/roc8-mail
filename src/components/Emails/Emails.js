@@ -13,6 +13,7 @@ const Emails = () => {
     };
     fetchAllEmails();
   }, [dispatch]);
+
   return (
     <div className="emails">
       {emails?.emails?.list?.map((email) => (

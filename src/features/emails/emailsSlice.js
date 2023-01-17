@@ -11,12 +11,12 @@ const initialState = {
   message: "",
 };
 
-export const getEmails = createAsyncThunk("emails/fetch", async () => {
+export const getEmails = createAsyncThunk("emails/fetch", async (thunkAPI) => {
   try {
     const response = await axios.get(FETCH_URL);
     return response.data;
-  } catch (error) {
-    return error.message;
+  } catch (e) {
+    return thunkAPI.rejectWithValue(e.message);
   }
 });
 
@@ -32,6 +32,13 @@ export const emailsSlice = createSlice({
       state.isLoading = false;
       state.isSuccess = true;
       state.emails = action.payload;
+    });
+    builder.addCase(getEmails.rejected, (state, action) => {
+      state.isLoading = false;
+      state.isSuccess = false;
+      state.emails = [];
+      state.isError = true;
+      state.message = "Something went wrong";
     });
   },
 });

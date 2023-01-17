@@ -1,9 +1,11 @@
 import React from "react";
-import DateAndTime from "../DateAndTime/DateAndTime";
 import { useNavigate } from "react-router-dom";
+import DateAndTime from "../DateAndTime/DateAndTime";
+import Avatar from "../Avatar/Avatar";
 
 const EmailCard = ({ user }) => {
   const navigate = useNavigate();
+
   const {
     id,
     from: { email, name },
@@ -13,13 +15,12 @@ const EmailCard = ({ user }) => {
   } = user;
 
   const clickHandler = () => {
-    navigate(`/${id}`);
+    navigate(`/${id}`, { state: user });
   };
+
   return (
     <div className="email-card email-card" onClick={clickHandler}>
-      <div className="avatar-wrapper">
-        <h1 className="avatar">{name[0].toUpperCase()}</h1>
-      </div>
+      <Avatar initial={name[0].toUpperCase()} />
       <div className="email-card-details">
         <h3 className="email-card-text">
           From:{" "}
@@ -34,9 +35,7 @@ const EmailCard = ({ user }) => {
           </span>
         </h3>
         <h3 className="email-card-text truncate">{short_description}</h3>
-        <h3 className="email-card-text">
-          <DateAndTime time={date} />
-        </h3>
+        <DateAndTime time={date} />
       </div>
     </div>
   );
