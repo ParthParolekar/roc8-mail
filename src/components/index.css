@@ -1,2 +1,4 @@
 @import "./EmailCard/email-card.css";
 @import "./FilterButton/filter-button.css";
+@import "./Emails/emails.css";
+@import "./ViewEmail/view-email.css";

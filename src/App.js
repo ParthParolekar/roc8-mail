@@ -1,13 +1,23 @@
 import React from "react";
 import "./App.css";
-import { EmailCard, FilterButton } from "./components";
+import {
+  EmailCard,
+  Emails,
+  FIlterOptions,
+  FilterButton,
+  ViewEmail,
+} from "./components";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <EmailCard />
-      <EmailCard />
-      <FilterButton />
+      <main className="main-section">
+        <Emails />
+        <Routes>
+          <Route path=":id" element={<ViewEmail />} />
+        </Routes>
+      </main>
     </div>
   );
 }

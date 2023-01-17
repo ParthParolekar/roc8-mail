@@ -1,0 +1,8 @@
+.emails {
+  width: 45%;
+  flex-grow: 1;
+  max-height: 100%;
+  margin: 0 1rem;
+  overflow-y: scroll;
+  border-radius: 10px;
+}

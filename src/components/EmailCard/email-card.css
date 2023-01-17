@@ -1,9 +1,9 @@
 .email-card {
   width: 100%;
-  margin: 1rem auto;
+  margin: 0 auto 1rem;
   min-height: max-content;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: flex-start;
   background-color: white;
   padding: 1rem;
@@ -55,4 +55,10 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+@media only screen and (max-width: 480px) {
+  .email-card-details {
+    width: 70%;
+  }
 }
