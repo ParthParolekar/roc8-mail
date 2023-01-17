@@ -12,6 +12,10 @@
   cursor: pointer;
 }
 
+.email-card:hover {
+  box-shadow: 0px 1px 8px var(--border);
+}
+
 .email-card-read {
   background-color: var(--read-background);
 }
