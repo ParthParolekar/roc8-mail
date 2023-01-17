@@ -1,21 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
-import {
-  EmailCard,
-  Emails,
-  FIlterOptions,
-  FilterButton,
-  ViewEmail,
-} from "./components";
-import { Route, Routes } from "react-router-dom";
+import { Emails, FIlterOptions, FilterButton, ViewEmail } from "./components";
+import { Route, Routes, useRoutes } from "react-router-dom";
 
 function App() {
+  const element = <Emails />;
+
+  const AllEmails = () =>
+    useRoutes(["/", "/:id"].map((path) => ({ path, element })));
+
   return (
     <div className="App">
       <main className="main-section">
-        <Emails />
+        <AllEmails />
         <Routes>
-          <Route path=":id" element={<ViewEmail />} />
+          <Route path="/" element={<></>} />
+          <Route path="/:id" element={<ViewEmail />} />
         </Routes>
       </main>
     </div>
