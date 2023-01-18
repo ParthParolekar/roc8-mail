@@ -24,6 +24,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  /* align-items: flex-start; */
   width: 80%;
 }
 
@@ -59,6 +60,21 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.email-card-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.favourite-button {
+  font-size: 2rem;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  margin-left: 1rem;
 }
 
 @media only screen and (max-width: 480px) {

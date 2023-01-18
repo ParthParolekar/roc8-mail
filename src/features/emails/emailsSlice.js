@@ -8,9 +8,14 @@ const readEmailId =
     ? JSON.parse(localStorage.getItem("read"))
     : [];
 
+const favouriteEmailId =
+  localStorage.getItem("favourite") !== null
+    ? JSON.parse(localStorage.getItem("favourite"))
+    : [];
+
 const initialState = {
   emails: [],
-  emailCache: { read: readEmailId, favourite: [] },
+  emailCache: { read: readEmailId, favourite: favouriteEmailId },
   isError: false,
   isLoading: false,
   isSuccess: false,
@@ -39,6 +44,22 @@ export const emailsSlice = createSlice({
         );
       }
     },
+    toggleFavourite: (state, action) => {
+      if (!state.emailCache.favourite.includes(action.payload)) {
+        state.emailCache.favourite = [
+          ...state.emailCache.favourite,
+          action.payload,
+        ];
+      } else {
+        state.emailCache.favourite = state.emailCache.favourite.filter(
+          (id) => id !== action.payload
+        );
+      }
+      localStorage.setItem(
+        "favourite",
+        JSON.stringify([...state.emailCache.favourite])
+      );
+    },
   },
   extraReducers(builder) {
     builder.addCase(getEmails.pending, (state, action) => {
@@ -59,6 +80,6 @@ export const emailsSlice = createSlice({
   },
 });
 
-export const { readEmail } = emailsSlice.actions;
+export const { readEmail, toggleFavourite } = emailsSlice.actions;
 
 export default emailsSlice.reducer;
