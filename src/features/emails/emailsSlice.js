@@ -3,8 +3,14 @@ import axios from "axios";
 
 const FETCH_URL = "https://flipkart-email-mock.now.sh/";
 
+const readEmailId =
+  localStorage.getItem("read") !== null
+    ? JSON.parse(localStorage.getItem("read"))
+    : [];
+
 const initialState = {
   emails: [],
+  emailCache: { read: readEmailId, favourite: [] },
   isError: false,
   isLoading: false,
   isSuccess: false,
@@ -23,7 +29,17 @@ export const getEmails = createAsyncThunk("emails/fetch", async (thunkAPI) => {
 export const emailsSlice = createSlice({
   name: "emails",
   initialState,
-  reducers: {},
+  reducers: {
+    readEmail: (state, action) => {
+      if (!state.emailCache.read.includes(action.payload)) {
+        state.emailCache.read = [...state.emailCache.read, action.payload];
+        localStorage.setItem(
+          "read",
+          JSON.stringify([...state.emailCache.read])
+        );
+      }
+    },
+  },
   extraReducers(builder) {
     builder.addCase(getEmails.pending, (state, action) => {
       state.isLoading = true;
@@ -42,5 +58,7 @@ export const emailsSlice = createSlice({
     });
   },
 });
+
+export const { readEmail } = emailsSlice.actions;
 
 export default emailsSlice.reducer;

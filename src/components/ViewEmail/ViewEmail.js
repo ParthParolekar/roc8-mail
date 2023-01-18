@@ -4,6 +4,7 @@ import { useLocation, useParams } from "react-router-dom";
 import { getEmailData } from "../../features/singleEmail/singleEmailSlice";
 import DateAndTime from "../DateAndTime/DateAndTime";
 import Avatar from "../Avatar/Avatar";
+import { readEmail } from "../../features/emails/emailsSlice";
 
 const ViewEmail = () => {
   const { id } = useParams();
@@ -18,12 +19,17 @@ const ViewEmail = () => {
     date,
     from: { email, name },
   } = location.state;
+
   useEffect(() => {
     const getEmailBody = async () => {
       dispatch(getEmailData(id));
     };
     getEmailBody();
   }, [dispatch, id]);
+
+  useEffect(() => {
+    dispatch(readEmail(id));
+  }, [id]);
 
   return (
     <aside className="view-email-wrapper">
