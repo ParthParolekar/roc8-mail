@@ -1,18 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import DateAndTime from "../DateAndTime/DateAndTime";
 import Avatar from "../Avatar/Avatar";
-import { toggleFavourite } from "../../features/emails/emailsSlice";
 import FavouriteButton from "../FavouriteButton/FavouriteButton";
 
 const EmailCard = ({ user }) => {
   const navigate = useNavigate();
   const emails = useSelector((state) => state.emails);
-  const dispatch = useDispatch();
 
   const [read, setRead] = useState(false);
-  const [favourite, setFavourite] = useState(false);
 
   const {
     id,
@@ -28,23 +25,11 @@ const EmailCard = ({ user }) => {
     }
   };
 
-  const toggleFavouriteHandler = () => {
-    dispatch(toggleFavourite(id));
-  };
-
   useEffect(() => {
     if (emails.emailCache.read.includes(id)) {
       setRead(true);
     }
   }, [emails.emailCache.read, id]);
-
-  useEffect(() => {
-    if (emails.emailCache.favourite.includes(id)) {
-      setFavourite(true);
-    } else {
-      setFavourite(false);
-    }
-  }, [emails.emailCache.favourite, id]);
 
   return (
     <div

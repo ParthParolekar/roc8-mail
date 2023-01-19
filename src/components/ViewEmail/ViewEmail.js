@@ -6,6 +6,7 @@ import DateAndTime from "../DateAndTime/DateAndTime";
 import Avatar from "../Avatar/Avatar";
 import { readEmail } from "../../features/emails/emailsSlice";
 import FavouriteButton from "../FavouriteButton/FavouriteButton";
+import { Markup } from "interweave";
 
 const ViewEmail = () => {
   const { id } = useParams();
@@ -17,7 +18,7 @@ const ViewEmail = () => {
   const {
     subject,
     date,
-    from: { email, name },
+    from: { name },
   } = location.state;
 
   useEffect(() => {
@@ -45,7 +46,7 @@ const ViewEmail = () => {
               </div>
               <FavouriteButton id={id} />
             </div>
-            <p>{singleEmail.email.body}</p>
+            <Markup content={singleEmail.email.body} />
           </div>
         </div>
       )}
