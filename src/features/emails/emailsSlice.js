@@ -37,19 +37,13 @@ export const emailsSlice = createSlice({
   reducers: {
     readEmail: (state, action) => {
       if (!state.emailCache.read.includes(action.payload)) {
-        state.emailCache.read = [...state.emailCache.read, action.payload];
-        localStorage.setItem(
-          "read",
-          JSON.stringify([...state.emailCache.read])
-        );
+        state.emailCache.read.push(action.payload);
+        localStorage.setItem("read", JSON.stringify(state.emailCache.read));
       }
     },
     toggleFavourite: (state, action) => {
       if (!state.emailCache.favourite.includes(action.payload)) {
-        state.emailCache.favourite = [
-          ...state.emailCache.favourite,
-          action.payload,
-        ];
+        state.emailCache.favourite.push(action.payload);
       } else {
         state.emailCache.favourite = state.emailCache.favourite.filter(
           (id) => id !== action.payload
@@ -57,7 +51,7 @@ export const emailsSlice = createSlice({
       }
       localStorage.setItem(
         "favourite",
-        JSON.stringify([...state.emailCache.favourite])
+        JSON.stringify(state.emailCache.favourite)
       );
     },
   },
