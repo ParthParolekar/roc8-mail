@@ -5,13 +5,13 @@ import { getEmailData } from "../../features/singleEmail/singleEmailSlice";
 import DateAndTime from "../DateAndTime/DateAndTime";
 import Avatar from "../Avatar/Avatar";
 import { readEmail } from "../../features/emails/emailsSlice";
+import FavouriteButton from "../FavouriteButton/FavouriteButton";
 
 const ViewEmail = () => {
   const { id } = useParams();
 
   const dispatch = useDispatch();
   const location = useLocation();
-
   const singleEmail = useSelector((state) => state.singleEmail);
 
   const {
@@ -29,7 +29,7 @@ const ViewEmail = () => {
 
   useEffect(() => {
     dispatch(readEmail(id));
-  }, [id]);
+  }, [id, dispatch]);
 
   return (
     <aside className="view-email-wrapper">
@@ -39,8 +39,11 @@ const ViewEmail = () => {
           <Avatar initial={name[0].toUpperCase()} />
           <div className="view-email-details">
             <div className="view-email-info">
-              <h1 className="view-email-subject">{subject}</h1>
-              <DateAndTime time={date} />
+              <div>
+                <h1 className="view-email-subject">{subject}</h1>
+                <DateAndTime time={date} />
+              </div>
+              <FavouriteButton id={id} />
             </div>
             <p>{singleEmail.email.body}</p>
           </div>

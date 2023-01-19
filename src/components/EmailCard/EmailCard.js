@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import DateAndTime from "../DateAndTime/DateAndTime";
 import Avatar from "../Avatar/Avatar";
 import { toggleFavourite } from "../../features/emails/emailsSlice";
+import FavouriteButton from "../FavouriteButton/FavouriteButton";
 
 const EmailCard = ({ user }) => {
   const navigate = useNavigate();
@@ -71,9 +72,7 @@ const EmailCard = ({ user }) => {
 
         <div className="email-card-flex">
           <DateAndTime time={date} />
-          <button className="favourite-button" onClick={toggleFavouriteHandler}>
-            {favourite ? "★" : "☆"}
-          </button>
+          <FavouriteButton id={id} />
         </div>
       </div>
     </div>

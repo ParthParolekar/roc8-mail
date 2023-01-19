@@ -1,0 +1,7 @@
+.filter-button-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  margin: 0.2rem 1rem;
+}

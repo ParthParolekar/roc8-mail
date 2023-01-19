@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./App.css";
-import { Emails, FIlterOptions, FilterButton, ViewEmail } from "./components";
+import { Emails, FIlterOptions, ViewEmail } from "./components";
 import { Route, Routes, useRoutes } from "react-router-dom";
 
 function App() {
@@ -11,6 +11,7 @@ function App() {
 
   return (
     <div className="App">
+      <FIlterOptions />
       <main className="main-section">
         <AllEmails />
         <Routes>

@@ -12,9 +12,15 @@
 }
 
 .filter-btn-selected {
-  background-color: var(--filter-btn);
+  background-color: var(--accent);
+  color: white;
 }
 
 .filter-btn:hover {
   background-color: var(--filter-btn);
+}
+
+.filter-btn-selected:hover {
+  background-color: var(--accent);
+  color: white;
 }

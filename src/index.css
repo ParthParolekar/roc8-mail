@@ -44,7 +44,7 @@ html {
 .main-section {
   display: flex;
   justify-content: center;
-  max-height: 95vh;
+  max-height: 90vh;
   /* width: 100%; */
 }
 
