@@ -18,7 +18,7 @@ const ViewEmail = () => {
   const {
     subject,
     date,
-    from: { email, name },
+    from: { name },
   } = location.state;
 
   useEffect(() => {
