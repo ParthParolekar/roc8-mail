@@ -10,6 +10,7 @@
   - Read
   - Unread
   - Favourites
+- Persist data using local storage
 - Responsive
 
 ## Tech Stack
