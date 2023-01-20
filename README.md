@@ -1,3 +1,23 @@
+# Roc8 Assingnment- Email Client App
+
+## Live: https://roc8mail.netlify.app/
+
+## Features
+- View All Emails
+- View and Read specific email
+- Mark an email as favourite
+- Filters based on:
+  - Read
+  - Unread
+  - Favourites
+- Responsive
+
+## Tech Stack
+- ReactJS
+- CSS
+- Redux/Redux toolkit
+- React-router
+
 # Getting Started with Create React App and Redux
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
